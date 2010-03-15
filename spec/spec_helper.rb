@@ -5,15 +5,6 @@ require File.expand_path(File.join(File.dirname(__FILE__),'..','config','environ
 require 'spec/autorun'
 require 'spec/rails'
 
-def set_session_for(user, id = nil)
-  controller.session["user_credentials"] = user.persistence_token
-  controller.session["user_credentials_id"] = user.id
-end
-
-def unset_session
-  controller.session["user_credentials"] = controller.session["user_credentials_id"] = nil
-end
-
 # Uncomment the next line to use webrat's matchers
 #require 'webrat/integrations/rspec-rails'
 

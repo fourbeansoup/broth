@@ -1,11 +1,12 @@
 require File.expand_path(File.dirname(__FILE__) + '/../../spec_helper')
 
 describe Admin::DashboardController do
+  include Devise::TestHelpers
   
   describe "with admin login" do
     before(:each) do
-      unset_session
-      set_session_for(Factory(:admin_user))
+      sign_out :user
+      sign_in Factory(:admin_user)
     end
 
     it "should load the dashboard" do
@@ -16,9 +17,9 @@ describe Admin::DashboardController do
   
   describe "without admin login" do
     before(:each) do
-      unset_session
+      sign_out :user
       Factory(:admin_user)
-      set_session_for(Factory(:valid_user))
+      sign_in Factory(:valid_user)
     end
 
     it "should not load the dashboard" do
@@ -32,7 +33,7 @@ describe Admin::DashboardController do
     
     it "should not load the dashboard" do
       get :show
-      response.should redirect_to(signin_url)
+      response.should redirect_to(new_user_session_url)
     end
     
   end

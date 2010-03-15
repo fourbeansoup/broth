@@ -1,11 +1,12 @@
 require File.dirname(__FILE__) + '/../../spec_helper'
 
 describe Admin::EmailsController do
+  include Devise::TestHelpers
   fixtures :users
   
   before(:each) do
-    unset_session
-    set_session_for(Factory(:admin_user))
+    sign_out :user
+    sign_in Factory(:admin_user)
   end
 
   describe "GET 'index'" do

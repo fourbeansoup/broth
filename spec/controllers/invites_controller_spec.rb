@@ -1,7 +1,8 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe InvitesController do
-
+  include Devise::TestHelpers
+  
   describe "GET 'new'" do
     it "should be successful" do
       Invite.should_receive(:new)

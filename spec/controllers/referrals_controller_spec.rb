@@ -1,6 +1,8 @@
 require File.dirname(__FILE__) + '/../spec_helper'
 
 describe ReferralsController do
+  include Devise::TestHelpers
+  
   before(:each) do
     @site = site_settings(:site)
   end
@@ -33,8 +35,8 @@ describe ReferralsController do
     describe "when logged in" do
       
       before(:each) do
-        unset_session
-        set_session_for(Factory(:valid_user))
+        sign_out :user
+        sign_in Factory(:valid_user)
       end
 
       it "should GET new" do

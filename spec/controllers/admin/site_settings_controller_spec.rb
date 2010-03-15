@@ -1,10 +1,11 @@
 require File.dirname(__FILE__) + '/../../spec_helper'
 
 describe Admin::SiteSettingsController do
+  include Devise::TestHelpers
   fixtures :users
   
   before(:each) do
-    set_session_for(Factory.create(:admin_user))
+    sign_in Factory.create(:admin_user)
     @site = mock_model(SiteSetting)
     SiteSetting.should_receive(:find).and_return(@site)
   end
