@@ -15,14 +15,15 @@ Feature: Account Update
   
   Scenario: User cannot update their account with invalid data
     When I go to the account edit page
-    And I fill in "password" with "passw0rd"
+    And I fill in "user_password" with "passw0rd"
     And I press "Update"
     Then I should see error messages
     
   Scenario: User can update their account with valid data
     When I go to the account edit page
-    And I fill in "password" with "passw0rd"
-    And I fill in "password confirmation" with "passw0rd"
-    And I fill in "current password" with "password"
+    And I fill in "email" with "joe@sixpack.com"
+    And I fill in "user_current_password" with "password"
     And I press "Update"
-    Then I should see "You updated your account successfully"
+    Then I should be on the account page
+    And I should see "joe@sixpack.com"
+    And I should see "You updated your account successfully."

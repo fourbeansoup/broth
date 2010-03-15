@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   devise :authenticatable, :lockable, :recoverable,
          :rememberable, :registerable, :trackable, :timeoutable, :validatable
   
-  attr_accessible :login, :email, :password, :password_confirmation
+  attr_accessible :login, :email, :password, :password_confirmation, :time_zone, :profile_attributes
   
   has_friendly_id :login, :use_slug => true
   
