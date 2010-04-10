@@ -25,6 +25,10 @@ Given /^I am signed up and signed in as "(.*)\/(.*)"$/ do |email, password|
   When %{I sign in as "#{email}\/#{password}"}
 end
 
+Given /^I am signed out$/ do
+  When %{I go to the sign out page}
+end
+
 When /^I sign in( with "remember me")? as "(.*)\/(.*)"$/ do |remember, email, password|
   When %{I go to the sign in page}
   And %{I fill in "Email" with "#{email}"}

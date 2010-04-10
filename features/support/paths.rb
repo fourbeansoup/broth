@@ -14,14 +14,22 @@ module NavigationHelpers
       new_user_registration_path
     when /the sign in page/
       new_user_session_path
+    when /the sign out page/
+      destroy_user_session_path
     when /the account page/
       account_path
     when /the account edit page/
       edit_user_registration_path
+    when /the password reset page/
+      new_user_password_path
     when /the new referral page/
       new_referral_path
+    when /the new invite page/
+      new_invite_path
     when /^(.*)'s profile page$/i
       profile_path(User.find_by_login($1))
+    when /the edit admin site settings page/
+      edit_admin_site_setting_path
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
