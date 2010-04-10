@@ -20,6 +20,9 @@ ActionController::Routing::Routes.draw do |map|
   # APP MARKER - Place app specific routes below this line
   
   
+  map.signin "/sign_in", :controller => "sessions", :action => "new"
+  map.signup "/sign_up", :controller => "registrations", :action => "new"
+  map.user_root "/account", :controller => "account"
   map.root :page
   map.profile "/:id", :controller => "accounts", :action => "show"
 end
