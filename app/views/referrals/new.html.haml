@@ -5,13 +5,15 @@
     Refer your Friends
 
 #page_body.wide
-  - form_for :referral, :url => referrals_url, :builder => HandcraftedFormBuilder do |f|
-    %fieldset
+  - semantic_form_for :referral, :url => referrals_url do |f|
+    - f.inputs do
       - unless user_signed_in?
-        = f.first_last :first_name, :last_name
-        = f.text_field :email, :example => "johnsmith@gmail.com"
-      = f.text_area :email_list, :rows => 5, :label => "Emails"
-      = f.text_area :email_text
-      = f.submit "Tell your friends" do
-        - link_to "Cancel", root_url, :class => "red"
+        = f.input :first_name, :last_name
+        = f.input :email, :example => "johnsmith@gmail.com"
+      = f.input :email_list, :rows => 5, :label => "Emails"
+      = f.input :email_text, :as => :text
+    - f.buttons do
+      = f.commit_button "Tell your friends", :button_html => {:class => "green"}
+      %li
+        = link_to "Cancel", root_url, :class => "red"
 

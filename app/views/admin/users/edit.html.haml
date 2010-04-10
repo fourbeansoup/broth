@@ -4,12 +4,11 @@
 
 #page_body
   / Edit user form
-  - form_for @user, :url => admin_user_url(@user), :builder => HandcraftedFormBuilder do |f|
-    = f.text_field :email, :example => "Frank@gethandcrafted.com"
-    = f.password_field :password
-    = f.password_field :password_confirmation
-    - fields_for @user.profile, :builder => HandcraftedFormBuilder do |profile|
-      = profile.text_field :first_name, :example => "Frank"
-      = profile.text_field :last_name, :example => "Miller"
-    = f.submit "Update" do
-      - link_to "Cancel", admin_users_url, :class => "cancel"
+  - semantic_form_for @user, :url => admin_user_url(@user) do |f|
+    = f.input :email, :hint => "Frank@gethandcrafted.com"
+    = f.input :password
+    = f.input :password_confirmation
+    - semantic_fields_for @user.profile do |profile|
+      = profile.input :first_name, :hint => "Frank", :required => false
+      = profile.input :last_name, :hint => "Miller", :required => false
+    = f.buttons :commit

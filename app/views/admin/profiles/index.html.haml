@@ -2,4 +2,4 @@
   %h1= fetch_section_name
 
 #page_body.wide
-  = sortable_table @profiles, :data => [:email, :first_name, :last_name], :link_action => :edits, :no_header => true
+  = sortable_table @profiles, :data => [:first_name, :last_name], :link_action => :edit, :no_header => true

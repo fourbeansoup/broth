@@ -4,9 +4,11 @@
 
 #page_body
   / Edit email form
-  - form_for @email, :url => admin_email_url(@email), :builder => HandcraftedFormBuilder do |f|
-    = f.text_field :name, :example => "invitation"
-    = f.text_field :subject, :example => "Welcome to #{@site.name}"
-    = f.text_area :body, :example => "You have been invited!"
-    = f.submit "Update" do
-      - link_to "Cancel", admin_emails_url, :class => "cancel"
+  - semantic_form_for @email, :url => admin_email_url(@email) do |f|
+    - f.inputs do
+      = f.input :name, :example => "invitation"
+      = f.input :subject, :example => "Welcome to #{@site.name}"
+      = f.input :body, :example => "You have been invited!"
+    - f.buttons do
+      = f.submit "Update" 
+      = link_to "Cancel", admin_emails_url, :class => "cancel"

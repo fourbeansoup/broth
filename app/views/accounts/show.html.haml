@@ -10,6 +10,6 @@
       Click here to
       = link_to "edit your account", edit_user_registration_url
 
-  -if @site.beta_invites? && signed_in?
+  -if @site.beta_invites? && user_signed_in?
     = render :partial => "shared/notice_invites"
     = render :partial => "invites/invite"

@@ -1,13 +1,12 @@
 = render :partial => "shared/notice_invite_required"
-
+- @partial_title = "Sign In"
 #page_header
   %h2
     = "Sign In"
 
 #page_body
-  - form_for resource_name, resource, :url => session_path(resource_name), :builder => HandcraftedFormBuilder do |f|
-    - field_set_tag do
-      = f.text_field :email
-      = f.password_field :password
-      = f.submit "Sign In" do
-        - link_to "Reset Password", new_user_password_url, :class => "green"
+  - semantic_form_for resource_name, resource, :url => session_path(resource_name) do |f|
+    = f.input :email
+    = f.input :password
+    - f.buttons do
+      = f.commit_button :label => "Sign In", :button_html => {:class => "green"}

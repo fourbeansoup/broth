@@ -1,5 +1,10 @@
-- form_for(Invite.new, :url => invites_path, :builder => HandcraftedFormBuilder ) do |f|
-  - field_set_tag do
-    = f.text_field :email
-    = f.submit "Request Invite" do
-      - link_to "Cancel", root_url, :class => "red"
+- semantic_form_for Invite.new, :url => invites_path do |f|
+  - f.inputs do
+    = f.input :email, :required => false
+  - f.buttons do
+    - if user_signed_in?
+      = f.commit_button "Send Invite", :button_html => {:class => "green"}
+    - else
+      = f.commit_button "Request Invite", :button_html => {:class => "green"}
+    %li
+      = link_to "Cancel", root_url, :class => "red"

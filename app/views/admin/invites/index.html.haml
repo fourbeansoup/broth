@@ -18,7 +18,7 @@
           Current Invites Total: 
           = User.invite_count
 
-      - form_tag reset_admin_invites_url do |i|
+      - form_tag reset_admin_invites_url do
         .field
           = label(:invite, :number, "Update Invites")
           = text_field(:invite, :number, :size => 3, :id => "update_invites")

@@ -4,15 +4,17 @@
 
 #page_body
   = error_messages_for 'site_setting'
-  - form_for(@site, :url => admin_site_setting_url, :method => :put, :builder => HandcraftedFormBuilder) do |f|
-    - field_set_tag do
-      = f.text_field :name, :label => "Site Name", :example => "Handcrafted Web App"
-      = f.text_field :url, :label => "Site URL", :example => "http://app.gethandcrafted.com" 
-      = f.text_area :description, :label => "Site Description", :example => "A handcrafted web app that will be all the rage"
-      = f.text_field :admin_email, :label => "Outgoing email address", :example => "hello@app.gethandcrafted.com"
-      = f.check_box :user_avatars, :label => "Allow users to upload avatar pictures?"
-      = f.check_box :beta_invites, :label => "Enable beta invites?"
-      = f.check_box :public_profiles, :label => "Enable public profile viewing?"
-      = f.check_box :referrals, :label => "Enable tell a friend?"
-      = f.submit "Update" do
-        - link_to "Cancel", admin_dashboard_url, :class => "cancel"
+  - semantic_form_for(@site, :url => admin_site_setting_url, :method => :put) do |f|
+    - f.inputs do
+      = f.input :name, :label => "Site Name", :example => "Handcrafted Web App"
+      = f.input :url, :label => "Site URL", :example => "http://app.gethandcrafted.com" 
+      = f.input :description, :label => "Site Description", :example => "A handcrafted web app that will be all the rage"
+      = f.input :admin_email, :label => "Outgoing email address", :example => "hello@app.gethandcrafted.com"
+      = f.input :user_avatars, :label => "Allow users to upload avatar pictures?"
+      = f.input :beta_invites, :label => "Enable beta invites?"
+      = f.input :public_profiles, :label => "Enable public profile viewing?"
+      = f.input :referrals, :label => "Enable tell a friend?"
+    - f.buttons do
+      = f.commit_button "Update", :button_html => {:class => "green"}
+      %li
+        = link_to "Cancel", admin_dashboard_url, :class => "red"
