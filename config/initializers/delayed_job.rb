@@ -2,3 +2,5 @@
 # unless ruby knows about the class before. Hence this initializer forces Profile to be loaded
 # everytime, specifically for Delayed::Jobs
 Profile
+
+Delayed::Worker.backend = :active_record

@@ -22,15 +22,16 @@ Rails::Initializer.run do |config|
   config.gem 'warden',                    :version => '>= 0.9.4'
   config.gem 'devise',                    :version => '>= 1.0.3'
   config.gem 'chronic',                   :version => '>= 0.2.3'
-  config.gem 'will_paginate',             :version => '>= 2.3.11',  :lib => 'will_paginate',  :source => 'http://gemcutter.org'
-  config.gem 'paperclip',                 :version => '>= 2.2.9',   :lib => 'paperclip',      :source => 'http://gemcutter.org'
-  config.gem 'whenever',                  :version => '>= 0.3.7',   :lib => false,            :source => 'http://gemcutter.org'
+  config.gem 'delayed_job',               :version => '>= 2.0.2'
+  config.gem 'will_paginate',             :version => '>= 2.3.11',  :lib => 'will_paginate'
+  config.gem 'paperclip',                 :version => '>= 2.2.9',   :lib => 'paperclip'
+  config.gem 'whenever',                  :version => '>= 0.3.7',   :lib => false
   config.gem 'friendly_id'
   config.gem 'newrelic_rpm'
   config.gem 'liquid'
   config.gem 'haml',                      :version => '>= 2.2.0'
-  config.gem 'compass',                   :version => '>= 0.8.5',                             :source => 'http://gemcutter.org'
-  config.gem 'grid-coordinates',          :version => '>= 1.0.3',   :lib => 'compass',        :source => 'http://gemcutter.org'
+  config.gem 'compass',                   :version => '>= 0.8.5'
+  config.gem 'grid-coordinates',          :version => '>= 1.0.3',   :lib => 'compass'
   config.gem 'formtastic'
   config.gem 'validation_reflection'
 
@@ -52,5 +53,6 @@ Rails::Initializer.run do |config|
   # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
   # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}')]
   # config.i18n.default_locale = :de
-  config.action_mailer.default_url_options = { :host => "tweethopper.com" }
+  config.action_mailer.default_url_options = { :host => "broth.local" }
+  
 end
