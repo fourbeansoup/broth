@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
   validates_presence_of :email
   validates_presence_of :login
   validates_length_of :email,    :within => 3..100
+  validate :has_invite?, :if => :need_invite?
   
   #Associations
   has_one :profile
@@ -64,6 +65,14 @@ class User < ActiveRecord::Base
   def deliver_password_reset_instructions!  
     reset_perishable_token!  
     Notifier.send_later(:deliver_password_reset_instructions, self)  
+  end
+
+  def need_invite?
+    SiteSetting.first.beta_invites?
+  end
+
+  def has_invite?
+    errors.add(:email, "doesn't have an invite yet") unless self.first_user? || Invite.find_by_email(self.email)
   end
 
 end
