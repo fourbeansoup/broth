@@ -6,7 +6,8 @@
 
 #page_body
   - semantic_form_for resource_name, resource, :url => session_path(resource_name) do |f|
-    = f.input :email
-    = f.input :password
+    - f.inputs do
+      = f.input :email
+      = f.input :password
     - f.buttons do
       = f.commit_button :label => "Sign In", :button_html => {:class => "green"}
