@@ -11,7 +11,7 @@ class Invite < ActiveRecord::Base
   before_create :remove_inviter_invite
   before_save :auto_approve
   
-  attr_accessible :email, :inviter_id
+  #attr_accessible :email, :inviter_id
   
   named_scope :usable, lambda {|email| {:conditions => ["email = ? AND used = ? AND approved = ?", email, false, true]} }
   named_scope :unused, :conditions => ["used = ?", false]

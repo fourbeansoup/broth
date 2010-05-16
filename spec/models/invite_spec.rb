@@ -36,6 +36,14 @@ describe Invite do
     invite.use!
     invite.should be_used
   end 
+
+  it "should auto approve an invite when an inviter is set" do
+    user = Factory(:valid_user, :invites => 1)
+    invite = Factory.build(:invite)
+    invite.add_inviter(user)
+    invite.save
+    invite.reload.should be_approved
+  end
   
   it "adds the inviter and decrements the invite count" do
     user = Factory(:valid_user, :invites => 1)

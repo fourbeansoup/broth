@@ -27,5 +27,26 @@ describe InvitesController do
       response.should render_template('new')
     end
     
+    describe "while signed in" do
+      
+      before do
+        @user = Factory(:valid_user)
+        sign_out :user
+        sign_in @user
+      end
+      
+      it "should be successful when a logged in user sends an invite" do
+        lambda {
+          post :create, :invite => {:email => "tom@test.com"}
+        }.should change(Invite, :count)
+      end
+      
+      it "should add the inviter when a logged in user sends the invite" do
+        post :create, :invite => {:email => "tom@test.com"}
+        Invite.first.inviter.should == @user
+      end
+      
+    end
+    
   end
 end
