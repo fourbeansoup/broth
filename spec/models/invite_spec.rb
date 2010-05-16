@@ -90,6 +90,7 @@ describe Invite do
       invite.should_not be_sent
       invite.sent_at.should be_nil
       invite.approve
+      invite.save
       invite.reload
       invite.should be_sent
     end

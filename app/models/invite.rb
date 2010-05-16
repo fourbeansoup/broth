@@ -9,9 +9,9 @@ class Invite < ActiveRecord::Base
   validate :ensure_inviter_has_invites, :if => Proc.new {|invite| !invite.inviter_id.nil?}
   
   before_create :remove_inviter_invite
-  before_save :auto_approve
+  before_create :auto_approve
   
-  #attr_accessible :email, :inviter_id
+  attr_accessible :email, :inviter_id
   
   named_scope :usable, lambda {|email| {:conditions => ["email = ? AND used = ? AND approved = ?", email, false, true]} }
   named_scope :unused, :conditions => ["used = ?", false]
@@ -39,7 +39,7 @@ class Invite < ActiveRecord::Base
   end
   
   def approve
-    self.update_attribute(:approved, true)
+    self.approved = true
   end
   
   def auto_approve

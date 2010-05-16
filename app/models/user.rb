@@ -72,7 +72,9 @@ class User < ActiveRecord::Base
   end
 
   def has_invite?
-    errors.add(:email, "doesn't have an invite yet") unless self.first_user? || Invite.find_by_email(self.email)
+    if self.new_record?
+      errors.add(:email, "doesn't have an invite yet") unless self.first_user? || Invite.find_by_email(self.email)
+    end
   end
 
 end
