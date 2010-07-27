@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
     end
 
     def require_user
-      authenitcate_user!
+      authenticate_user!
     end
     
     def require_admin
