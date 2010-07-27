@@ -20,21 +20,12 @@ class ApplicationController < ActionController::Base
     end
 
     def require_user
-      unless current_user
-        store_location
-        flash[:notice] = "You must be signed in to access this page"
-        redirect_to new_user_session_url
-        return false
-      end
+      authenitcate_user!
     end
     
     def require_admin
       unless current_user && current_user.admin?
-        store_location
-        flash[:notice] = "You must be an admin to access this page"
-        redirect_to account_url if user_signed_in?
-        redirect_to new_user_session_url if user_signed_out?
-        return false
+        authenticate_user!
       end
     end
     

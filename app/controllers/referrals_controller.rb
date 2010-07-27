@@ -1,6 +1,6 @@
 class ReferralsController < ApplicationController
   before_filter :enabled?
-  before_filter :require_user
+  before_filter :authenticate_user!
   
   def index
     redirect_to new_referral_path
