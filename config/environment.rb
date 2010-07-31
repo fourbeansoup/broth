@@ -28,6 +28,7 @@ Rails::Initializer.run do |config|
   config.gem 'whenever',                  :version => '>= 0.3.7',   :lib => false
   config.gem 'friendly_id'
   config.gem 'newrelic_rpm'
+  config.gem 'hoptoad_notifier'
   config.gem 'liquid'
   config.gem 'haml',                      :version => '>= 2.2.0'
   config.gem 'compass',                   :version => '>= 0.8.5'
