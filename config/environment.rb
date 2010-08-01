@@ -36,7 +36,6 @@ Rails::Initializer.run do |config|
   config.gem 'grid-coordinates',          :version => '>= 1.0.3',   :lib => 'compass'
   config.gem 'formtastic'
   config.gem 'validation_reflection'
-  config.gem 'specjour'
   
 
   # Only load the plugins named here, in the order given (default is alphabetical).
