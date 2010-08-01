@@ -59,7 +59,7 @@ class Invite < ActiveRecord::Base
   
   def send!
     if approved? && unsent?
-      InviteMailer.send_later(:deliver_invite_notification, self)
+      InviteMailer.deliver_invite_notification(self.id)
       self.update_attribute(:sent_at, Time.now)
     end
   end
