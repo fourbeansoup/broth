@@ -23,6 +23,7 @@ Rails::Initializer.run do |config|
   config.gem 'devise',                    :version => '>= 1.0.3'
   config.gem 'chronic',                   :version => '>= 0.2.3'
   config.gem 'resque'
+  config.gem 'resque_mailer'
   config.gem 'will_paginate',             :version => '>= 2.3.11',  :lib => 'will_paginate'
   config.gem 'paperclip',                 :version => '>= 2.2.9',   :lib => 'paperclip'
   config.gem 'whenever',                  :version => '>= 0.3.7',   :lib => false
