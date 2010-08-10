@@ -11,3 +11,5 @@
       = f.input :password
     - f.buttons do
       = f.commit_button :label => "Sign In", :button_html => {:class => "green"}
+      %li
+        = link_to "Forgot Password?", new_user_password_url, :class => "blue"

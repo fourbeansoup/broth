@@ -4,10 +4,12 @@
 
 #page_body
   = error_messages_for :user
-  - form_for resource_name, resource, :url => password_path(resource_name), :builder => HandcraftedFormBuilder, :html => {:method => :put} do |f|
-    - field_set_tag do
-      = f.hidden_field :reset_password_token
-      = f.password_field :password
-      = f.password_field :password_confirmation
-      = f.submit "Change" do
-        - link_to "Cancel", account_url, :class => "red"
+  - semantic_form_for resource_name, resource, :url => password_path(resource_name), :html => {:method => :put} do |f|
+    - f.inputs do
+      = f.input :reset_password_token, :as => :hidden
+      = f.input :password, :required => false
+      = f.input :password_confirmation, :required => false
+    - f.buttons do
+      = f.commit_button "Change Password", :button_html => {:class => "green"} 
+      %li
+        = link_to "Cancel", account_url, :class => "red"
