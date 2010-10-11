@@ -9,6 +9,8 @@
       = f.input :email, :example => "johnsmith@gmail.com", :required => false
       = f.input :login, :label => "Profile url", :example => "#{@site.url}/profile_url", :required => false
       = f.input :time_zone
+      = f.input :has_invites?, :as => :check_boxes
+      = f.input :display_name, :as => :radio
       - f.inputs :for => :profile do |p|
         = p.input :first_name
         = p.input :last_name

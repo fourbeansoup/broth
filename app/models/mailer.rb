@@ -1,4 +1,5 @@
 class Mailer < ActionMailer::Base
+  include Resque::Mailer
   
   def self.inherited_without_helper(subclass)
     @@subclasses ||= []

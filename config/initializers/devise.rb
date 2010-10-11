@@ -103,3 +103,5 @@ Devise.setup do |config|
   #   { :locale => I18n.locale }
   # end
 end
+
+DeviseMailer.send(:include, Resque::Mailer)

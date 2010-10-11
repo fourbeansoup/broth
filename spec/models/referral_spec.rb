@@ -1,6 +1,9 @@
 require File.expand_path(File.dirname(__FILE__) + '/../spec_helper')
 
 describe Referral do
+  before do
+    Factory.create(:email_template, :name => "referral")
+  end
   
   it "creates a valid referral" do
     referral = Factory.create(:valid_referral)
@@ -13,9 +16,9 @@ describe Referral do
   end
   
   it "sends a referral email when a new referral is created" do
-    lambda do
-      referral = Factory.create(:valid_referral)
-    end.should change(Delayed::Job, :count)
+    Resque.size("mailer").should == 0
+    referral = Factory.create(:valid_referral)
+    Resque.size("mailer").should == 1
   end
   
   it "should only send an email to an email address once" do

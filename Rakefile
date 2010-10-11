@@ -10,7 +10,8 @@ require 'rake/rdoctask'
 require 'tasks/rails'
 
 begin
-  require 'delayed/tasks'
+  require 'resque'
+  require 'resque/tasks'
 rescue LoadError
-  STDERR.puts "Run `rake gems:install` to install delayed_job"
+  STDERR.puts "Run `rake gems:install` to install resque"
 end
