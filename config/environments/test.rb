@@ -33,4 +33,3 @@ config.gem 'factory_girl',    :version => '>= 1.2.3', :lib => 'factory_girl'
 config.gem "rspec",           :version => '>= 1.2.0', :lib => false
 config.gem "rspec-rails",     :version => '>= 1.3.2', :lib => false
 config.gem 'pickle',          :version => '>=0.1.23', :lib => false
-config.gem 'metric_fu',       :version => '>= 1.3.0', :lib => 'metric_fu'
