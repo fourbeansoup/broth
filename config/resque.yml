@@ -2,4 +2,7 @@ development: localhost:6379
 staging: localhost:6379
 test: localhost:6379:15
 cucumber: localhost:6379:15
-production: redis.tweethopper.com:6379
+production:
+  host: production.appname.com
+  port: 6379
+  password: 1234
