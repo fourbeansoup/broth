@@ -1,6 +1,0 @@
-#page_header
-  %h1
-    = fetch_section_name
-
-#page_body.wide
-  = sortable_table @jobs, :data => [:id, :run_at, :failed_at], :no_header => true

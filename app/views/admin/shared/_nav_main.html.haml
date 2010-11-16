@@ -13,6 +13,6 @@
       %li.profiles
         = link_to "Profiles", admin_profiles_url
     %li.jobs
-      = link_to "Jobs (#{Delayed::Job.count})", admin_jobs_url
+      = link_to "Jobs (#{Resque.info[:pending]})", admin_jobs_url
     %li.view_site
       = link_to "View Site", root_url
