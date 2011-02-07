@@ -18,7 +18,7 @@ class Referral < ActiveRecord::Base
   
     def send_referral_emails
       ReferralMailer.deliver_referral(email_address, email_text)
-      ReferralMailer.deliver_confirmation(referrer.email, email_text) if referrer.email
+      ReferralMailer.deliver_confirmation(referrer.email) if referrer.email
     end
   
     def email_address_isnt_a_user

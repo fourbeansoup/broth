@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
     
     def require_admin
       unless current_user && current_user.admin?
-        authenticate_user!
+        redirect_to account_url
       end
     end
     

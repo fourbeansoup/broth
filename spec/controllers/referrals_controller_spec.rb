@@ -5,6 +5,8 @@ describe ReferralsController do
   
   before(:each) do
     @site = site_settings(:site)
+    Factory.create(:email_template, :name => "referral")
+    Factory.create(:email_template, :name => "confirmation")
   end
   
   describe "with referrals disabled" do
