@@ -20,7 +20,7 @@ Rails::Initializer.run do |config|
   # config.gem "aws-s3", :lib => "aws/s3"
   # config.gem "tinder", :lib => false
   config.gem 'warden',                    :version => '>= 0.9.4'
-  config.gem 'devise',                    :version => '>= 1.0.3'
+  config.gem 'devise',                    :version => '>= 1.0.9'
   config.gem 'chronic',                   :version => '>= 0.2.3'
   config.gem 'resque'
   config.gem 'resque_mailer'
