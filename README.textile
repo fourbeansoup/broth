@@ -17,8 +17,8 @@ h2. Opinionated Choices
 * "JQuery":http://jquery.com/
 * "JQuery Tools":http://flowplayer.org/tools/
 * "qTip":http://craigsworks.com/projects/qtip/
-* Delayed Job
-* AuthLogic
+* Resque
+* Devise
 * NewRelic
 * Hoptoad
 
