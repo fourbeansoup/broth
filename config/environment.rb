@@ -24,6 +24,7 @@ Rails::Initializer.run do |config|
   config.gem 'chronic',                   :version => '>= 0.2.3'
   config.gem 'resque'
   config.gem 'resque_mailer'
+  config.gem 'delayed_job',               :version => '2.0.2'
   config.gem 'will_paginate',             :version => '>= 2.3.11',  :lib => 'will_paginate'
   config.gem 'paperclip',                 :version => '>= 2.2.9',   :lib => 'paperclip'
   config.gem 'whenever',                  :version => '>= 0.3.7',   :lib => false
@@ -35,9 +36,10 @@ Rails::Initializer.run do |config|
   config.gem 'compass',                   :version => '>= 0.8.5'
   config.gem 'grid-coordinates',          :version => '>= 1.0.3',   :lib => 'compass'
   config.gem 'formtastic'
-  config.gem 'validation_reflection'
+  config.gem 'validation_reflection', 	  :version => '0.3.8'
   # APP MARKER - Place app specific routes below this line
   
+
 
   # Only load the plugins named here, in the order given (default is alphabetical).
   # :all can be used as a placeholder for all plugins not explicitly named
