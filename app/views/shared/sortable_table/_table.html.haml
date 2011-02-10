@@ -1,9 +1,20 @@
 - unless options[:no_header]
   %h2
     = options[:name]
+
+- if options[:search]
+  .sortable_search
+    - form_tag options[:search_path], :method => "get" do
+      %p
+        = text_field_tag :search, params[:search]
+        = submit_tag "Search", :name => nil    
+
 - if objects.blank?
   %p
-    = "There are no #{options[:name].downcase} yet."
+    - if params.fetch(:search, "").blank?
+      = "There are no #{options[:name].downcase} yet."
+    - else
+      = "No #{options[:name].downcase} where found for that search criteria"
 - else
   %table.sortable
     %thead

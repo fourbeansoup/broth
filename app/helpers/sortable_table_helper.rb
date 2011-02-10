@@ -27,6 +27,8 @@ module SortableTableHelper
     options[:headers] ||= options[:data].collect {|header| header.to_s.humanize}.flatten unless options[:model].nil?
     options[:link_action] ||= :show
     options[:controller] ||= params[:controller]
+    options[:search] = true if options[:search].nil?
+    options[:search_path] ||= url_for(:action => :index)
     options
   end
 

@@ -1,7 +1,7 @@
 class Admin::EmailsController < AdminController
 
   def index
-    @emails = EmailTemplate.find(:all)
+    @emails = EmailTemplate.perform_search(params[:search])
   end
   
   def edit

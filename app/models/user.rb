@@ -76,5 +76,13 @@ class User < ActiveRecord::Base
       errors.add(:email, "doesn't have an invite yet") unless self.first_user? || Invite.find_by_email(self.email)
     end
   end
+  
+  def self.perform_search(search)
+    if search
+      find(:all, :conditions => ["email LIKE ?", "%#{search}%"])
+    else
+      find(:all)
+    end
+  end
 
 end
