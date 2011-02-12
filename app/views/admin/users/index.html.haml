@@ -2,4 +2,4 @@
   %h1
     = fetch_section_name
 #page_body.wide
-  = sortable_table @users, { :data => [:email, :created_at, :sign_in_count, :current_sign_in_ip], :link_action => :edit, :no_header => true }
+  = sortable_table @users, { :data => [:email, :created_at, :sign_in_count, :current_sign_in_ip], :link_action => :edit, :no_header => true, :server_sortable => true }

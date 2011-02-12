@@ -77,11 +77,12 @@ class User < ActiveRecord::Base
     end
   end
   
-  def self.perform_search(search)
+  def self.perform_search(search, sort_column, sort_direction)
+    order = "#{sort_column} #{sort_direction}"
     if search
-      find(:all, :conditions => ["email LIKE ?", "%#{search}%"])
+      find(:all, :conditions => ["email LIKE ?", "%#{search}%"], :order => order)
     else
-      find(:all)
+      find(:all, :order => order)
     end
   end
 
