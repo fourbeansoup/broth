@@ -14,11 +14,12 @@ class EmailTemplate < ActiveRecord::Base
     render(self.subject, options)
   end
   
-  def self.perform_search(search)
+  def self.perform_search(search, sort_column, sort_direction)
+    order = "#{sort_column} #{sort_direction}"
     if search
-      find(:all, :conditions => ["(name LIKE ?) OR (subject LIKE ?)", "%#{search}%", "%#{search}%"])
+      find(:all, :conditions => ["(name LIKE ?) OR (subject LIKE ?)", "%#{search}%", "%#{search}%"], :order => order)
     else
-      find(:all)
+      find(:all, :order => order)
     end
   end
   

@@ -2,4 +2,4 @@
   %h1= fetch_section_name
 
 #page_body.wide
-  = sortable_table @emails, :data => [:name, :subject], :link_action => :edit, :no_header => true
+  = sortable_table @emails, :data => [:name, :subject], :link_action => :edit, :no_header => true, :server_sortable => true

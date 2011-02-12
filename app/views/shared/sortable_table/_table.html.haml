@@ -5,6 +5,8 @@
 - if options[:search]
   .sortable_search
     - form_tag options[:search_path], :method => "get" do
+      = hidden_field_tag :direction, params[:direction]
+      = hidden_field_tag :sort, params[:sort]
       %p
         = text_field_tag :search, params[:search]
         = submit_tag "Search", :name => nil    
@@ -16,12 +18,12 @@
     - else
       = "No #{options[:name].downcase} where found for that search criteria"
 - else
-  %table.sortable
+  %table{:class => "#{options[:server_sortable] ? "server_sortable" : "sortable"}"}
     %thead
       %tr
-        - options[:headers].each do |header|
+        - options[:headers].each_with_index do |header, i|
           %th
-            =h header
+            = options[:server_sortable] ? sortable_table_header(header, options[:data][i]) : h(header)
   
     - if objects.respond_to?(:total_pages)
       %tfoot

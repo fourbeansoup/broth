@@ -29,7 +29,15 @@ module SortableTableHelper
     options[:controller] ||= params[:controller]
     options[:search] = true if options[:search].nil?
     options[:search_path] ||= url_for(:action => :index)
+    options[:server_sortable] = false if options[:server_sortable].nil?
     options
+  end
+  
+  def sortable_table_header(header, column)
+    column = column.to_s
+    css_class = column == sort_column ? "current #{sort_direction}" : nil
+    direction = column == sort_column && sort_direction == "asc" ? "desc" : "asc"
+    link_to h(header), params.merge(:sort => column, :direction => direction), {:class => css_class}
   end
 
 end
