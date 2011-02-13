@@ -1,0 +1,5 @@
+<% column_names.each do |name| %>
+<%- next if %w(id created_at updated_at).include?(name) -%>
+<%- name.gsub!("_id", "") -%>
+= f.input :<%= name %>
+<% end %>
