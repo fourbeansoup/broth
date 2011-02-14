@@ -11,7 +11,7 @@ describe Admin::EmailsController do
 
   describe "GET 'index'" do
     it "should be successful" do
-      EmailTemplate.should_receive(:find).with(:all)
+      EmailTemplate.should_receive(:find).with(:all, {:order => "name asc"})
       get 'index'
       response.should be_success
     end
