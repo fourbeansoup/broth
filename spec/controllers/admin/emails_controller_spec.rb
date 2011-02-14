@@ -15,6 +15,24 @@ describe Admin::EmailsController do
       get 'index'
       response.should be_success
     end
+    
+    it "should sort on the ascending by default" do
+      EmailTemplate.should_receive(:find).with(:all, {:order => "subject asc"})
+      get 'index', :sort => "subject"
+      response.should be_success
+    end
+    
+    it "should sort descending if asked to" do
+      EmailTemplate.should_receive(:find).with(:all, {:order => "subject desc"})
+      get 'index', :sort => "subject", :direction => "desc"
+      response.should be_success
+    end
+    
+    it "should not accept column names that don't exist and order gracefully by name instead" do
+      EmailTemplate.should_receive(:find).with(:all, {:order => "name desc"})
+      get 'index', :sort => "this_is_not_a_column", :direction => "desc"
+      response.should be_success
+    end
   end
 
   describe "GET 'edit'" do
