@@ -16,4 +16,5 @@ db/sphinx/*
 index/*
 tmp/restart.txt
 public/avatars
-public/stylesheets/compiled/*
+public/stylesheets/compiled/
+*vendor/ruby
