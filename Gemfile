@@ -30,9 +30,9 @@ group :test do
 end
 
 group :cucumber do
-  gem 'cucumber-rails', '=0.2.4' 
-  gem 'database_cleaner', '>=0.4.3' 
-  gem 'webrat', '=0.7.0'
+  gem 'cucumber-rails', '0.3.2' 
+  gem 'database_cleaner' 
+  gem 'capybara'
   gem 'pickle'
   gem 'launchy'
   gem 'rspec', '=1.3.1' 
