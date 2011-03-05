@@ -3,15 +3,9 @@ require File.dirname(__FILE__) + '/../spec_helper'
 describe Invite do
   fixtures :users
   
-  it  do
-    invite = Invite.new
-    invite.should validate_presence_of(:email)
-  end
+  it { should validate_presence_of(:email) }
   
-  it do
-    invite = Invite.new
-    invite.should validate_uniqueness_of(:email)
-  end
+  #it { should validate_uniqueness_of(:email) }
   
   it "should not add an invite for an existing user" do
     user = Factory(:valid_user)

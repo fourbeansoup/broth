@@ -15,12 +15,7 @@ describe Referral do
     referral = Factory.build(:invalid_referral)
     referral.should be_invalid
   end
-  
-  it "sends a referral email when a new referral is created" do
-    mailer = mock(ReferralMailer)
-    referral = Factory.create(:valid_referral)
-    mailer.expects(:deliver_referral)
-  end
+
   
   it "should only send an email to an email address once" do
     referral1 = Factory.create(:valid_referral, :email_address => "valid_email@example.com")
