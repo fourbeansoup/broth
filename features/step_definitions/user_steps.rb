@@ -1,5 +1,5 @@
 Then /^I should see error messages$/ do
-  response.body.should match /error(s)? prohibited/m
+  page.body.should match /error(s)? prohibited/m
 end
 
 Given /^no user exists with an email of "(.*)"$/ do |email|
@@ -37,11 +37,11 @@ When /^I sign in( with "remember me")? as "(.*)\/(.*)"$/ do |remember, email, pa
   And %{I press "Sign In"}
 end
 
-Then /^I should be signed in$/ do
-  controller.should be_user_signed_in
+Then /^I should be signed in as "(.*)"$/ do |email|
+  page.should have_content(email)
 end
 
 Then /^I should be signed out$/ do
-  controller.should be_user_signed_out
+  page.should have_content("Sign In")
 end
 

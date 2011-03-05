@@ -6,6 +6,8 @@ Feature: Invites
   
   Background:
     Given site settings have been enabled for "beta_invites"
+    Given an email template for "invitation" exists
+    Given an email template for "welcome" exists
   
   Scenario: Visitor should be notified that an invite is required to signup
     When I go to the sign up page

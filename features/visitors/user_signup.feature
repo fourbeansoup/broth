@@ -4,6 +4,8 @@ Feature: Sign up
   As a visitor
   I should be able to sign up
   
+  Background:
+    Given an email template for "welcome" exists
 
   Scenario: User signs up with invalid data
     When I go to the sign up page

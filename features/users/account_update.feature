@@ -21,7 +21,7 @@ Feature: Account Update
     
   Scenario: User can update their account with valid data
     When I go to the account edit page
-    And I fill in "email" with "joe@sixpack.com"
+    And I fill in "Email" with "joe@sixpack.com"
     And I fill in "user_current_password" with "password"
     And I press "Update"
     Then I should be on the account page

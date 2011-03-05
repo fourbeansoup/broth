@@ -16,5 +16,5 @@ Feature: Sign in
     When I go to the sign in page
     And I sign in as "email@person.com/password"
     Then I should see "Signed in successfully"
-    And I should be signed in
+    And I should be signed in as "email@person.com"
   

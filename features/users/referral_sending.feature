@@ -5,6 +5,8 @@ Feature: Referral sending
 
 	Scenario: User can send friends email
 		Given site settings have been enabled for "referrals"
+    Given an email template for "referral" exists
+    Given an email template for "confirmation" exists
 	  Given I am signed up and signed in as "email@person.com/password"
 	  When I go to the new referral page
 		And I fill in "Emails" with "joe.sixpack@test.com"
